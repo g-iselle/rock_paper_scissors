@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors!</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    console.log("Hello World")
+
+
+    function getComputerChoice() {
+        let randomNumber = Math.floor(Math.random() * 3);
+
+        if (randomNumber === 0) {
+            return 'Rock';
+        } else if (randomNumber === 1) {
+            return 'Paper';
+        } else {
+            return 'Scissors';
+        }
+    }
+
+    function getHumanChoice() {
+        let askHuman = prompt("Rock, Paper, or Scissors?");
+
+        if (askHuman.toLowerCase() === 'rock') {
+            return "Rock";
+        } else if (askHuman.toLocaleLowerCase() === 'paper') {
+            return "Paper";
+        } else if (askHuman.toLocaleLowerCase() === 'scissors') {
+            return "Scissors";
+        } else {
+            prompt("Please try again");
+        }
+    }
+
+    let humanScore = 0;
+    let computerScore = 0;
+
+    // const humanChoice = getHumanChoice();
+    // const computerChoice = getComputerChoice();
+
+    // function playRound(humanChoice, computerChoice) {
+    //     if (humanChoice === computerChoice) {
+    //         return alert('Its a tie!')
+    //     } else if (
+    //         (humanChoice === 'rock' && computerChoice === 'scissors') ||
+    //         (humanChoice === 'paper' && computerChoice === 'rock') ||
+    //         (humanChoice === 'scissors' && computerChoice === 'paper')
+    //     ) {
+    //         humanScore++;
+    //         return alert('Human wins!')
+    //     } else {
+    //         computerScore++;
+    //         return alert('Computer wins!')
+    //     }
+    // }
+
+    // playRound(humanChoice, computerChoice);
+
+
+    function playRound(humanChoice, computerChoice) {
+        if (humanChoice === computerChoice) {
+            return alert('Its a tie!')
+        } else if (
+            (humanChoice === 'Rock' && computerChoice === 'Scissors') ||
+            (humanChoice === 'Paper' && computerChoice === 'Rock') ||
+            (humanChoice === 'Scissors' && computerChoice === 'Paper')
+        ) {
+            humanScore++;
+            return alert('Human wins!')
+        } else {
+            computerScore++;
+            return alert('Computer wins!')
+        }
+
+    }
+
+    function playGame() {
+        playRound(getHumanChoice(), getComputerChoice());
+        playRound(getHumanChoice(), getComputerChoice());
+        playRound(getHumanChoice(), getComputerChoice());
+        playRound(getHumanChoice(), getComputerChoice());
+        playRound(getHumanChoice(), getComputerChoice());
+
+        if (humanScore > computerScore) {
+            alert("Human is the WINNER!")
+        } else if (
+            computerScore > humanScore) {
+            alert("Computer is the WINNER!")
+        } else {
+            alert("Its a tie! Try again")
+
+        }
+    }
+
+    playGame();
+
+</script>
+
+</html>
